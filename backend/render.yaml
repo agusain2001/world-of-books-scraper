@@ -1,0 +1,18 @@
+# Render Blueprint for World of Books Backend
+# https://render.com/docs/blueprint-spec
+
+services:
+  - type: web
+    name: world-of-books-api
+    runtime: node
+    buildCommand: npm install && npm run build
+    startCommand: npm run start:prod
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 3001
+      - key: DATABASE_URL
+        sync: false  # You'll set this manually in Render dashboard
+      - key: FRONTEND_URL
+        sync: false  # Set to your Vercel frontend URL
